@@ -1,30 +1,33 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: PACKAGE VERSION\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-01-07 19:13+0000\n"
+"Last-Translator: Петро Романчук <ixer@ixer.org.ua>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/openwrt/"
+"luciapplicationsirqbalance/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:82
 msgid "Cache level at which irqbalance partitions cache domains."
-msgstr ""
+msgstr "Рівень кешу, на якому irqbalance розподіляє домени кешу."
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:82
 msgid "Deepest cache"
-msgstr ""
+msgstr "Найглибший кеш"
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:78
 msgid "Enable"
-msgstr ""
+msgstr "Увімкнути"
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:92
 msgid "Exclude CPUs"
-msgstr ""
+msgstr "Виключити ядра"
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:104
 msgid "Exclude IRQs"
@@ -59,14 +62,22 @@ msgstr ""
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:56
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:68
 msgid "Loading..."
-msgstr ""
+msgstr "Завантаження..."
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:30
 msgid "NOT RUNNING"
-msgstr ""
+msgstr "НЕ ПРАЦЮЄ"
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:29
 msgid "RUNNING"
+msgstr "ЗАПУЩЕНО"
+
+#: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:114
+msgid "Show debug output"
+msgstr ""
+
+#: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:114
+msgid "Show debug output in system log."
 msgstr ""
 
 #: applications/luci-app-irqbalance/htdocs/luci-static/resources/view/irqbalance.js:60

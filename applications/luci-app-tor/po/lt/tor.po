@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2024-01-28 06:39+0000\n"
-"Last-Translator: Džiugas J <dziugas1959@hotmail.com>\n"
+"PO-Revision-Date: 2024-10-16 09:51+0000\n"
+"Last-Translator: Džiugas Januševičius <dziugas1959@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/openwrt/"
 "luciapplicationstor/lt/>\n"
 "Language: lt\n"
@@ -11,13 +11,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && ("
 "n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:93
 msgid "A pair <code>PublicPort;LocalPort</code> e.g. <code>80;8080</code>."
 msgstr ""
-"Pora <code>ViešasisPrievadas;VietinisPrievadas</code> pvz: "
-"<code>80;8080</code>."
+"Pora <code>ViešasisPrievadas;VietinisPrievadas</code> pvz: <code>80;8080</"
+"code>."
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:94
 msgid ""
@@ -35,9 +35,13 @@ msgstr ""
 "Vienas <code>Prievadas</code>, kai viešasis prievadas yra toks pat, kaip ir "
 "vietinis pvz: <code>80</code>."
 
+#: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor.js:21
+msgid "Custom config"
+msgstr "Pasirinktinė konfigūracija"
+
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:82
 msgid "Description"
-msgstr "Aprašas"
+msgstr "Aprašas/-ymas"
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:85
 msgid "Destination address"
@@ -45,9 +49,10 @@ msgstr "Paskirties/Kelionės tikslo adresas"
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:50
 msgid "Enabled"
-msgstr "Įjungta/Įgalinta"
+msgstr "Įjungta/Įgalinta (-s/-i)"
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:34
+#: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor.js:12
 msgid "For further information <a %s>check the documentation</a>"
 msgstr "Norint sužinoti daugiau <a %s>peržiūrėkite dokumentaciją</a>"
 
@@ -58,6 +63,10 @@ msgstr "Suteikti „UCI“ prieigą – „luci-app-tor“"
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:100
 msgid "Hook Script"
 msgstr "Pririšti skriptą"
+
+#: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor.js:18
+msgid "Include configs"
+msgstr "Įtraukti konfigūracijas"
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:79
 msgid "Link"
@@ -80,16 +89,17 @@ msgid ""
 "The .onion domain is passed into the script via parameter <code>--update-"
 "onion HOSTNAME</code>."
 msgstr ""
-"„.onion“ domenas-sritis yra pateiktas į skriptą per parametrą – „<code"
-">--update-onion HOSTNAME</code>“."
+"„.onion“ domenas-sritis yra pateiktas į skriptą per parametrą – „<code>--"
+"update-onion HOSTNAME</code>“."
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:33
 msgid ""
 "Tor Onion (Hidden) Services are proxy tunnels to your local website, SSH and "
 "other services."
 msgstr ""
-"„Tor Onion“ (Paslėptas/-a) Tarnybos yra įgalioti tuneliai į Jūsų vietinę "
-"svetainę, „SSH“ ar kitas tarnybas/paslaugas."
+"„Tor Onion“ (Paslėpta/-s) tarnybos yra įgalioti „tuneliai“ – tinklo "
+"protokolas, skirtas šifruoti/pereiti į Jūsų vietinę/-į/-ias svetainę, „SSH“ "
+"ar kitas tarnybas/paslaugas."
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:32
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:38
@@ -97,10 +107,17 @@ msgstr ""
 msgid "Tor Onion Services"
 msgstr "„Tor Onion“ tarnybos"
 
+#: applications/luci-app-tor/root/usr/share/luci/menu.d/luci-app-tor.json:24
+msgid "Tor Onion router"
+msgstr "„Tor Onion“ maršrutizatorius"
+
+#: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor.js:11
 #: applications/luci-app-tor/root/usr/share/luci/menu.d/luci-app-tor.json:3
 msgid "Tor onion router"
 msgstr "„Tor Onion“ maršrutizatorius"
 
 #: applications/luci-app-tor/htdocs/luci-static/resources/view/tor/tor-hs.js:86
 msgid "Traffic will be forwarded to the target hostname"
-msgstr "Srautas bus persiųstas į taikomąjį įrenginio pavadinimą"
+msgstr ""
+"Srautas bus persiųstas į taikomąjį įrenginio (t.y skleidėjo/vedėjo) "
+"pavadinimą"

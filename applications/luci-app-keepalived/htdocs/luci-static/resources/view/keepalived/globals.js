@@ -4,7 +4,7 @@
 
 return view.extend({
 	render: function() {
-		var m, s, o;
+		let m, s, o;
 
 		m = new form.Map('keepalived');
 
@@ -13,7 +13,7 @@ return view.extend({
 		s.addremove = false;
 
 		o = s.option(form.Value, 'router_id', _('Router ID'),
-			_('String identifying the machine (doesn\'t have to be hostname)'));
+			_('String identifying the machine (need not be hostname)'));
 		o.optional = true;
 		o.placeholder = 'OpenWrt';
 
