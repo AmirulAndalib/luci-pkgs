@@ -11,34 +11,7 @@
 "require view";
 "require https-dns-proxy.status as hdp";
 
-var pkg = {
-	get Name() {
-		return "https-dns-proxy";
-	},
-
-	get URL() {
-		return "https://docs.openwrt.melmac.net/" + pkg.Name + "/";
-	},
-
-	templateToRegexp: function (template) {
-		return RegExp(
-			"^" +
-				template
-					.split(/(\{\w+\})/g)
-					.map((part) => {
-						let placeholder = part.match(/^\{(\w+)\}$/);
-						if (placeholder) return `(?<${placeholder[1]}>.*?)`;
-						else return part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-					})
-					.join("") +
-				"$"
-		);
-	},
-
-	templateToResolver: function (template, args) {
-		return template.replace(/{(\w+)}/g, (_, v) => args[v]);
-	},
-};
+var pkg = hdp.pkg;
 
 return view.extend({
 	load: function () {
@@ -56,7 +29,7 @@ return view.extend({
 				http2_support: null,
 				http3_support: null,
 			},
-			providers: (data[1] && data[1][pkg.Name]) || { providers: [] },
+			providers: (data[1] && data[1][pkg.Name]) || [{ title: "empty" }],
 		};
 		reply.providers.sort(function (a, b) {
 			return _(a.title).localeCompare(_(b.title));
@@ -81,7 +54,7 @@ return view.extend({
 			"dnsmasq_config_update_option",
 			_("Update DNSMASQ Config on Start/Stop"),
 			_(
-				"If update option is selected, the %s'DNS forwardings' section of DHCP and DNS%s will be automatically updated to use selected DoH providers (%smore information%s)."
+				"If update option is selected, the %s'DNS Forwards' section of DHCP and DNS%s will be automatically updated to use selected DoH providers (%smore information%s)."
 			).format(
 				'<a href="' + L.url("admin", "network", "dhcp") + '">',
 				"</a>",
@@ -100,13 +73,15 @@ return view.extend({
 				section_id,
 				"dnsmasq_config_update"
 			);
-			switch (val) {
-				case "*":
-				case "-":
-					return val;
-				default:
-					return "+";
-			}
+			if (val && val[0]) {
+				switch (val[0]) {
+					case "*":
+					case "-":
+						return val[0];
+					default:
+						return "+";
+				}
+			} else return "*";
 		};
 		o.write = function (section_id, formvalue) {
 			L.uci.set(pkg.Name, section_id, "dnsmasq_config_update", formvalue);
@@ -138,7 +113,12 @@ return view.extend({
 			form.ListValue,
 			"force_dns",
 			_("Force Router DNS"),
-			_("Forces Router DNS use on local devices, also known as DNS Hijacking.")
+			_(
+				"Forces Router DNS use on local devices, also known as DNS Hijacking. Only works on `lan` interface by default (%smore information%s)."
+			).format(
+				'<a href="' + pkg.URL + "#force_dns" + '" target="_blank">',
+				"</a>"
+			)
 		);
 		o.value("0", _("Let local devices use their own DNS servers if set"));
 		o.value("1", _("Force Router DNS server to all local devices"));
@@ -351,7 +331,7 @@ return view.extend({
 		o.optional = true;
 
 		o = s.option(form.Value, "listen_addr", _("Listen Address"));
-		o.datatype = "ipaddr";
+		o.datatype = "ipaddr('nomask')";
 		o.default = "";
 		o.optional = true;
 		o.placeholder = "127.0.0.1";
@@ -373,13 +353,13 @@ return view.extend({
 		o.optional = true;
 
 		o = s.option(form.Value, "dscp_codepoint", _("DSCP Codepoint"));
-		o.datatype = "and(uinteger, range(0,63))";
+		o.datatype = "range(0,63)";
 		o.default = "";
 		o.modalonly = true;
 		o.optional = true;
 
 		o = s.option(form.Value, "verbosity", _("Logging Verbosity"));
-		o.datatype = "and(uinteger, range(0,4))";
+		o.datatype = "range(0,4)";
 		o.default = "";
 		o.modalonly = true;
 		o.optional = true;
@@ -390,7 +370,7 @@ return view.extend({
 		o.optional = true;
 
 		o = s.option(form.Value, "polling_interval", _("Polling Interval"));
-		o.datatype = "and(uinteger, range(5,3600))";
+		o.datatype = "range(5,3600)";
 		o.default = "";
 		o.modalonly = true;
 		o.optional = true;

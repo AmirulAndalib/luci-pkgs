@@ -1,33 +1,33 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-10 09:49+0000\n"
-"Last-Translator: Random <random-r@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2024-03-06 09:48+0000\n"
+"Last-Translator: Nico Carlino <ziconick@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/openwrt/"
 "luciapplicationsbcp38/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: applications/luci-app-bcp38/htdocs/luci-static/resources/view/bcp38/form.js:41
 msgid "Allowed IP ranges"
 msgstr "Intervalli IP permessi"
 
+#: applications/luci-app-bcp38/htdocs/luci-static/resources/view/bcp38/form.js:25
+msgid "Auto-detect upstream IP"
+msgstr "Rilevamento automatico IP upstream"
+
 #: applications/luci-app-bcp38/htdocs/luci-static/resources/view/bcp38/form.js:26
 msgid ""
-"Attempt to automatically detect if the upstream IP will be blocked by the "
-"configuration, and add an exception if it will. If this does not work "
+"Automatically attempt to detect whether the upstream IP will be blocked by "
+"the configuration, adding an exception if so. If this does not work "
 "correctly, you can add exceptions manually below."
 msgstr ""
 "Tentare di rilevare automaticamente se l'IP upstream verrà bloccato dalla "
 "configurazione; aggiungere un'eccezione nel caso fosse bloccato. Se questo "
 "non funziona correttamente, è possibile aggiungere manualmente le eccezioni "
 "di seguito."
-
-#: applications/luci-app-bcp38/htdocs/luci-static/resources/view/bcp38/form.js:25
-msgid "Auto-detect upstream IP"
-msgstr "Rilevamento automatico IP upstream"
 
 #: applications/luci-app-bcp38/htdocs/luci-static/resources/view/bcp38/form.js:10
 #: applications/luci-app-bcp38/root/usr/share/luci/menu.d/luci-app-bcp38.json:3
@@ -44,7 +44,7 @@ msgstr "Intervalli IP bloccati"
 
 #: applications/luci-app-bcp38/htdocs/luci-static/resources/view/bcp38/form.js:21
 msgid "Enable"
-msgstr "Attiva"
+msgstr "Abilitare"
 
 #: applications/luci-app-bcp38/root/usr/share/rpcd/acl.d/luci-app-bcp38.json:3
 msgid "Grant UCI access for luci-app-bcp38"

@@ -114,7 +114,7 @@ function handleAction(ev) {
 				}
 			}, optionsAP);
 			L.ui.showModal(_('QR-Code Overview'), [
-				E('p', _('Render the QR-Code of the selected Access Point to comfortably transfer the WLAN credentials to your mobile devices.')),
+				E('p', _('Render the QR-Code of the selected Access Point to transfer the WLAN credentials to your mobile devices comfortably.')),
 				E('div', { 'class': 'left', 'style': 'display:flex; flex-direction:column' }, [
 					E('label', { 'class': 'cbi-input-select', 'style': 'padding-top:.5em' }, [
 						selectAP,
@@ -143,7 +143,7 @@ return view.extend({
 	},
 
 	render: function (result) {
-		var m, s, o;
+		let m, s, o;
 
 		m = new form.Map('travelmate', 'Travelmate', _('Configuration of the travelmate package to enable travel router functionality. \
 			For further information <a href="https://github.com/openwrt/packages/blob/master/net/travelmate/files/README.md" target="_blank" rel="noreferrer noopener" >check the online documentation</a>. <br /> \
@@ -293,7 +293,7 @@ return view.extend({
 		s.addremove = false;
 		s.tab('general', _('General Settings'));
 		s.tab('additional', _('Additional Settings'));
-		s.tab('adv_email', _('E-Mail Settings'), _('Please note: E-Mail notifications require the separate setup of the <em>mstmp</em> package.<br /><p>&#xa0;</p>'));
+		s.tab('adv_email', _('E-Mail Settings'), _('Please note: E-Mail notifications require the separate setup of the <em>msmtp</em> package.<br /><p>&#xa0;</p>'));
 
 		/*
 			general settings tab
@@ -316,7 +316,7 @@ return view.extend({
 		o.rmempty = false;
 
 		o = s.taboption('general', form.Flag, 'trm_vpn', _('VPN processing'), _('VPN connections will be managed by travelmate.'));
-		o.default = 1;
+		o.default = 0;
 		o.rmempty = false;
 
 		o = s.taboption('general', widgets.NetworkSelect, 'trm_vpnifacelist', _('Limit VPN processing'), _('Limit VPN processing to certain interfaces.'));
@@ -385,11 +385,6 @@ return view.extend({
 		o = s.taboption('additional', form.Value, 'trm_timeout', _('Overall Timeout'), _('Overall retry timeout in seconds.'));
 		o.placeholder = '60';
 		o.datatype = 'range(30,300)';
-		o.rmempty = true;
-
-		o = s.taboption('additional', form.Value, 'trm_maxscan', _('Scan Limit'), _('Limit the nearby scan results to process only the strongest uplinks.'));
-		o.placeholder = '10';
-		o.datatype = 'range(1,30)';
 		o.rmempty = true;
 
 		o = s.taboption('additional', form.ListValue, 'trm_captiveurl', _('Captive Portal URL'), _('The selected URL will be used for connectivity- and captive portal checks.'));
